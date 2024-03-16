@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <style>
+        body{
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: white;
+            }
+            button{
+                background-color: #4CAF50;
+                width: 15%;
+                padding: 15px;
+                color: black;
+                border: none;
+                float: center;
+                font-size: 15px;
+                font-weight: bold;
+                border-radius: 10px;
+            }
+            label{
+                font-size: 20px;
+                margin-bottom: 10px;
+            }
+            form{
+                border: 3px solid #f1f1f1;
+            }
+            input[type=email],input[type=text],input[type=password]{
+                width: 50%;
+                font-size: 15px;
+                margin: 8px 10px;
+                margin-left: 50px;
+                padding: 12px 20px;
+                display: inline-block;
+                border: 2px solid green;
+                box-sizing: border-box;
+                margin-bottom: 20px;
+            }
+            input[type=radio]{
+                height: 18px;
+                width: 40px;
+                margin-bottom: 20px;
+            }
+            .container{
+                padding: 50px;
+                background-color: white;
+            }
+    </style>
+</head>
+
+<body>
+    <center><h1>Sign Up</h1> </center>
+    <form action="#" method="post">
+        {% csrf_token %}
+        <!--- Cross site request forgery  : ensuring that the form submission originates from your website and not from an unauthorized third-party site.-->
+        {% load static %}
+        <!--used to load static files (such as CSS, JavaScript, or images) into the template.-->
+        <center><div class="container">
+            <label><b>First Name</b></label>
+            <input type="text" placeholder="Enter your First Name" name="first_name" required><br>
+            <label><b>Last Name</b></label>
+            <input type="text" placeholder="Enter your Last Name" name="last_name" required><br>
+            <label><b>Designation</b></label>
+            <input type='radio' name='desg' value='Eng' required>
+            <label><b>HOD</b></label>
+            <input type='radio' name='desg' value='Eng' required>
+            <label><b>Engineer</b></label>
+            <input type='radio' name='desg' value='Sr.Eng' required>
+            <label><b>Sr.Engineer</b></label><br>
+            <label><b>Username</b></label>
+            <input type="email" placeholder="Enter your Email" name="email" required><br>
+            <label><b>Password</b></label>
+            <input type="password" placeholder="Enter your Password" name="password" required><br>
+            <button type="submit">Sign Up</button><br>
+            <br>
+            <b>Already have an account ?</b> <a href="http://localhost:8000/login/">Login</a>
+        </div></center>
+    </form>
+</body>
+
+</html>
